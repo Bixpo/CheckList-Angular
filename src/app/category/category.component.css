@@ -1,0 +1,9 @@
+.yellow-button {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .yellow-button:hover {
+    background-color: #fdd835; /* Amarelo escuro para hover */
+  }
+  

@@ -25,7 +25,6 @@ import { CategoryComponent } from './category/category.component';
     HomeComponent,
     PageNotFoundComponent,
     CategoryComponent,
-
   ],
   imports: [
     BrowserModule,
