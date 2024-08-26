@@ -1,0 +1,41 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 18px;
+}
+
+.sidenav-container {
+    height: 100vh;
+  }
+  
+  .sidenav {
+    width: 240px; /* Ajuste a largura conforme necessário */
+    background-color: #ffffff; /* Cor de fundo da sidebar */
+    color: #000000; /* Cor do texto na sidebar */
+  }
+  
+  .sidenav-content {
+    /* background-color: #424242; Cor de fundo da área principal */
+    padding: 16px;
+  }
+  
+  .mat-list-item {
+    cursor: pointer;
+  }
+  
+  .ml-15 {
+    margin-left: 15px;
+  }
