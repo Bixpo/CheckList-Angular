@@ -25,3 +25,13 @@
     background-color: #020f85; /* Amarelo escuro para hover */
   }
   
+  .green-button {
+    background-color: #477f00;
+    color: #fff;
+  }
+  
+  .green-button:hover {
+    background-color: #94c803; /* Amarelo escuro para hover */
+  }
+  
+ 

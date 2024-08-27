@@ -1,28 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-.w-10p{
-    width: 10%;
+.w-10p {
+  width: 10%;
 }
 
 .ml-15 {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
-.w-100{
-    width: 100%;
+.w-100 {
+  width: 100%;
 }
 
-.m-20{
-    margin: 20px;
+.m-20 {
+  margin: 20px;
 }
 
-.mr-10{
-    margin-right: 10px !important;
+.mr-10 {
+  margin-right: 10px !important;
 }
 
-.accents{ 
- color: #ffb727;
+.accents {
+  color: #ffb727;
+}
+
+.flx-cnter-row {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-evly {
+  justify-content: space-evenly;
+}
+
+.w-300 {
+  width: 300px;
 }

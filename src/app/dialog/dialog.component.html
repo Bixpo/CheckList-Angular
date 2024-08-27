@@ -1,0 +1,19 @@
+<div>
+  <mat-card>
+    <mat-card-content>
+      <p>{{ dialogMsg }}</p>
+    </mat-card-content>
+    <mat-card-actions class="flx-cnter-row flex-evly">
+      <button class="red-button" mat-raised-button (click)="clickLeftButton()">
+        {{ leftButtonLabel }}
+      </button>
+      <button
+        class="azul-button"
+        mat-raised-button
+        (click)="clickRightButton()"
+      >
+        {{ rightButtonLabel }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
