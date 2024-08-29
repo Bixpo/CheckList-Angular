@@ -1,0 +1,37 @@
+.yellow-button {
+    background-color: yellow;
+    color: #070707;
+  }
+  
+  .yellow-button:hover {
+    background-color: #fdd835; /* Amarelo escuro para hover */
+  }
+  
+  .red-button {
+    background-color: #c41026;
+    color: #fff;
+  }
+  
+  .red-button:hover {
+    background-color: #d83a31; /* Amarelo escuro para hover */
+  }
+  
+  .azul-button {
+    background-color: #2f03a8;
+    color: #fff;
+  }
+  
+  .azul-button:hover {
+    background-color: #020f85; /* Amarelo escuro para hover */
+  }
+  
+  .green-button {
+    background-color: #477f00;
+    color: #fff;
+  }
+  
+  .green-button:hover {
+    background-color: #94c803; /* Amarelo escuro para hover */
+  }
+  
+ 

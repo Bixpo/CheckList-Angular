@@ -1,0 +1,65 @@
+.yellow-button {
+  background-color: yellow;
+  color: #070707;
+}
+
+.yellow-button:hover {
+  background-color: #fdd835; /* Amarelo escuro para hover */
+}
+
+.red-button {
+  background-color: #c41026;
+  color: #fff;
+}
+
+.red-button:hover {
+  background-color: #d83a31; /* Amarelo escuro para hover */
+}
+
+.azul-button {
+  background-color: #2f03a8;
+  color: #fff;
+}
+
+.azul-button:hover {
+  background-color: #020f85; /* Amarelo escuro para hover */
+}
+
+.green-button {
+  background-color: #477f00;
+  color: #fff;
+}
+
+.green-button:hover {
+  background-color: #94c803; /* Amarelo escuro para hover */
+}
+
+.custom-icon-edit {
+  color: #ffd41f;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  font-size: 28px; /* Aumenta o tamanho do ícone */
+  margin-right: 5px;
+}
+
+.custom-icon-edit:hover {
+  color: #ffc219;
+}
+
+.custom-icon-delete {
+  color: #fa023c;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 28px; /* Aumenta o tamanho do ícone */
+}
+
+.custom-icon-delete:hover {
+  color: darkred;
+}
+
+.pointeryyesorno {
+  cursor: pointer;
+  font-size: 28px; /* Aumenta o tamanho do ícone */
+  vertical-align: middle;
+}

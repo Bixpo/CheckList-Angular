@@ -1,0 +1,84 @@
+<div>
+  <mat-card class="m-20">
+    <mat-card-header>
+      <mat-card-title>Gerenciar Checklist</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="completed">
+          <th mat-header-cell *matHeaderCellDef>Completar Item</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon
+              class="pointeryyesorno"
+              color="primary"
+              *ngIf="!element.completed"
+              (click)="updateCompleteStatus(true)"
+              >thumb_up</mat-icon
+            >
+            <mat-icon
+              class="pointeryyesorno"
+              color="warn"
+              *ngIf="element.completed"
+              (click)="updateCompleteStatus(false)"
+              >thumb_down</mat-icon
+            >
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Descrição</th>
+          <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="deadline">
+          <th mat-header-cell *matHeaderCellDef>Prazo</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.deadline | date : 'MM/dd/yyyy' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="postdate">
+          <th mat-header-cell *matHeaderCellDef>Data da postagem</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.postdate | date : 'MM/dd/yyyy' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>Categorias</th>
+          <td mat-cell *matCellDef="let element">{{ element.category.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Ações</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon
+              class="custom-icon-edit"
+              (click)="updateChecklistItem(element)"
+              >edit_note</mat-icon
+            >
+            <mat-icon
+              class="custom-icon-delete"
+              (click)="deleteChecklistItem(element)"
+              >delete</mat-icon
+            >
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-raised-button class="red-button" [routerLink]="['/']">Home</a>
+      <a mat-raised-button class="azul-button" (click)="createNewItem()"
+        >Criar novo item do Checklist</a
+      >
+    </mat-card-actions>
+  </mat-card>
+</div>
