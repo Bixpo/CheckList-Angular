@@ -63,3 +63,11 @@
   font-size: 28px; /* Aumenta o tamanho do ícone */
   vertical-align: middle;
 }
+
+.custom-icon-edit,
+.custom-icon-delete {
+  margin-right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+

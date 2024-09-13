@@ -1,28 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CATEGORY_DATA } from '../category/category.component';
 import { ChecklistItem } from '../_models/checklist_item';
 import { DialogComponent } from '../dialog/dialog.component';
 import { ChecklistEditComponent } from '../checklist-edit/checklist-edit.component';
-
-export const CHECKLIST_DATA = [
-  {
-    guid: 'aaa-bbb-ccc-ddd',
-    completed: false,
-    description: 'Ir ao oftalmologista',
-    deadline: Date.now(),
-    postdate: Date.now(),
-    category: CATEGORY_DATA.find((x) => x.name === 'Educação'),
-  },
-  {
-    guid: 'aaa-bbb-ccc-ddd',
-    completed: true,
-    description: 'Reunião com o gerente',
-    deadline: Date.now(),
-    postdate: Date.now(),
-    category: CATEGORY_DATA.find((x) => x.name === 'Trabalho'),
-  },
-];
+import { ChecklistService } from '../service/checklist.service';
 
 @Component({
   selector: 'app-checklist',
@@ -30,7 +11,7 @@ export const CHECKLIST_DATA = [
   styleUrls: ['./checklist.component.css'],
 })
 export class ChecklistComponent implements OnInit {
-  public dataSource = CHECKLIST_DATA;
+  public dataSource: ChecklistItem[] = [];
 
   public displayedColumns: string[] = [
     'id',
@@ -43,9 +24,18 @@ export class ChecklistComponent implements OnInit {
   ];
 
   // Injeção de MatDialog no construtor
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private ChecklistService: ChecklistService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ChecklistService.getAllChecklistItems().subscribe(
+      (resp: ChecklistItem[]) => {
+        this.dataSource = resp;
+      }
+    );
+  }
 
   public updateCompleteStatus(status: boolean) {
     console.log(`Status alterado: ${status}`);

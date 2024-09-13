@@ -3,13 +3,8 @@ import { Category } from '../_models/category';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { CategoryEditComponent } from '../category-edit/category-edit.component';
-
-export const CATEGORY_DATA = [
-  { name: 'Educação', guid: 'aaa-bbb-ccc-dddd' },
-  { name: 'Saúde', guid: 'aaa-bbb-ccc-dddd' },
-  { name: 'Trabalho', guid: 'aaa-bbb-ccc-dddd' },
-  { name: 'Outros', guid: 'aaa-bbb-ccc-dddd' },
-];
+import { CategoryService } from '../service/category.service';
+import { SnackBarService } from '../service/snack-bar.service';
 
 @Component({
   selector: 'app-category',
@@ -18,20 +13,28 @@ export const CATEGORY_DATA = [
 })
 export class CategoryComponent implements OnInit {
   public displayedColumns: string[] = ['id', 'name', 'actions'];
-  public dataSource: Category[] = CATEGORY_DATA;
+  public dataSource: Category[] = [];
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private categoryService: CategoryService,
+    private snackBarService: SnackBarService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.categoryService.getAllCategories().subscribe((resp: Category[]) => {
+      this.dataSource = resp;
+    });
+  }
 
   public editCategory(inputCategory: Category) {
     console.log('edit category click');
-
+  
     const dialogRef = this.dialog.open(CategoryEditComponent, {
       disableClose: true,
       data: { editCategory: inputCategory },
     });
-
+  
     dialogRef.componentInstance.closeModelEventEmitter.subscribe(
       (closeModal: boolean) => {
         if (!closeModal) {
@@ -39,9 +42,17 @@ export class CategoryComponent implements OnInit {
         }
       }
     );
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('Modal editar fechada');
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('Categoria editada com sucesso:', 'ok');
+        this.snackBarService.showSnackBar(
+          'Categoria editada com sucesso!',
+          'OK'
+        );
+      } else {
+        console.log('Edição de categoria cancelada');
+      }
     });
   }
 
@@ -57,8 +68,12 @@ export class CategoryComponent implements OnInit {
       })
       .afterClosed()
       .subscribe((resp) => {
+        console.log('Categoria apagada com sucesso!');
         if (resp) {
-          console.log('Categoria apagada com sucesso!');
+          this.snackBarService.showSnackBar(
+            'categoria apagada com successo!',
+            'OK'
+          );
         } else {
           console.log('Categoria não apagada');
         }
